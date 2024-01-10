@@ -16,3 +16,11 @@ class Solution:
             return [nums.index(sorted_nums[right]),nums.index(sorted_nums[left], nums.index(sorted_nums[right])+1)]
         else:
             return [nums.index(sorted_nums[right]),nums.index(sorted_nums[left])]
+
+
+Explaination - 
+This consumes much less time that checking every possible pair which would be about O(n^2) time complexity 
+But in this case ( which ofcourse might not be the most optimal solution but is still better than the brute force approach ) 
+sorting takes only O(Nlogn) --> according to the sortign function that is inbuilt in the python library
+finding index would take O(n) --> manually searches 
+This approach is defintely less time consuming that brute force, with time complexity being O(nlogn)
