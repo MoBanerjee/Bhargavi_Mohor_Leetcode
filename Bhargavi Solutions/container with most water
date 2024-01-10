@@ -22,3 +22,10 @@ class Solution:
             else:
                 right= right-1
         return maxArea
+
+
+Question info:
+name --> Container with most water
+topic --> Array
+difficulty --> Medium
+link --> https://leetcode.com/problems/container-with-most-water/
