@@ -1,17 +1,5 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        """ Explaination - 
-                we start checking the widest rectangle first 
-                then we close in
-                if the height of the left boundary is less, then there is no way              
-                that we can push the right boundary to the left --> as this would 
-                just reduce the width of the rectangle. the height would be the height 
-                of the left boudary or lesser than that --> so its pointless to check the
-                area of this rectangle, instead we push the left boundary toward the right,
-                becuase there is a POSSIBILITY that the height of this new left boundary might 
-                be as large as the right boundary thereby increasing the area even if the width
-                reduces
-        """
         left = 0
         right = len(height)-1
         maxArea = 0
@@ -22,10 +10,22 @@ class Solution:
             else:
                 right= right-1
         return maxArea
-
-
+-----------------------------------------------------------------------------------------------
+Explaination - 
+                we start checking the widest rectangle first 
+                then we close in
+                if the height of the left boundary is less, then there is no way              
+                that we can push the right boundary to the left --> as this would 
+                just reduce the width of the rectangle. the height would be the height 
+                of the left boudary or lesser than that --> so its pointless to check the
+                area of this rectangle, instead we push the left boundary toward the right,
+                becuase there is a POSSIBILITY that the height of this new left boundary might 
+                be as large as the right boundary thereby increasing the area even if the width
+                reduces
+--------------------------------------------------------------------------------------------------
 Question info:
 name --> Container with most water
 topic --> Array
 difficulty --> Medium
 link --> https://leetcode.com/problems/container-with-most-water/
+--------------------------------------------------------------------------------------------------
