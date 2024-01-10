@@ -1,0 +1,15 @@
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        sorted_list = sorted(nums1+nums2)
+        length = len(sorted_list)
+        if length%2!=0:
+            return sorted_list[int(length/2)]
+        else:
+            return (sorted_list[int(length/2)] + sorted_list[int(length/2)-1])/2
+            
+'''
+link :- https://leetcode.com/problems/median-of-two-sorted-arrays/
+name :- median of two sorted arrays 
+topic :- Arrays
+difficulty :- Hard ( fr some reason)
+'''
