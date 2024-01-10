@@ -1,0 +1,32 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+         int newcopy[]=nums.clone();
+         Arrays.sort(newcopy);
+         int left=0;
+         int right=nums.length-1;
+         int[]ans=new int[2];
+         while(right>left){
+             int temp=newcopy[right]+newcopy[left];
+             if(temp<target){
+                 left++;
+             }
+             else if(temp>target){
+                 right--;
+             }
+             else{
+                 for(int k=0;k<nums.length;k++){
+                     if(nums[k]==newcopy[left]){ans[0]=k;
+                     break;}}
+                     int h=0;
+                     if(newcopy[left]==newcopy[right])h=ans[0]+1;
+                     for(;h<nums.length;h++){
+                     if(nums[h]==newcopy[right]){ans[1]=h;
+                     break;}
+                 }
+
+             break;
+         }
+         
+
+    }return ans;}
+}
