@@ -24,3 +24,10 @@ But in this case ( which ofcourse might not be the most optimal solution but is 
 sorting takes only O(Nlogn) --> according to the sortign function that is inbuilt in the python library
 finding index would take O(n) --> manually searches 
 This approach is defintely less time consuming that brute force, with time complexity being O(nlogn)
+
+
+Question Info:
+link --> https://leetcode.com/problems/two-sum/
+difficulty --> medium 
+topic --> arrays
+name --> two sum
