@@ -7,9 +7,9 @@ class Solution:
         else:
             return (sorted_list[int(length/2)] + sorted_list[int(length/2)-1])/2
             
-'''
+Question info :
 link :- https://leetcode.com/problems/median-of-two-sorted-arrays/
 name :- median of two sorted arrays 
 topic :- Arrays
 difficulty :- Hard ( fr some reason)
-'''
+
