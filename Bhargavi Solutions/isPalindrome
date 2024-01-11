@@ -1,0 +1,9 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        list1 = list(str(x))
+        list1.reverse()
+        return  list1 == list(str(x))
+--------------------------------------------------
+link --> https://leetcode.com/problems/palindrome-number/description/
+type --> math
+difficulty --> easy
