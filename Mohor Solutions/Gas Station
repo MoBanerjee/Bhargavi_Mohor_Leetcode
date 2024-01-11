@@ -1,3 +1,4 @@
+Solution1
 class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         
@@ -23,6 +24,56 @@ class Solution {
            }while(start!=al.get(0));
            if (start==al.get(0)) return start;
            al.remove(0);
+       }
+       return -1;
+    }
+}
+
+
+
+Solution2
+class station{
+    int ind;
+    int gas;
+    int cost;
+    public station(int i,int g,int c){
+        ind=i;
+        gas=g;
+        cost=c;
+    }
+    public int compareTo(station s){
+        int self=gas-cost;
+        int other=s.gas-s.cost;
+        return Integer.compare(self, other);
+    }
+}
+class Solution {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        ArrayList<station> sl=new ArrayList<station>();
+       for(int i=0;i<gas.length;i++) {
+        if(gas[i]>cost[i]){
+            sl.add(new station(i,gas[i],cost[i]));
+        }
+       }
+       if(gas.length==1 && gas[0]>=cost[0]){
+           return 0;
+       }
+       if(sl.size()==0)return -1;
+       Collections.sort(sl,Collections.reverseOrder((station1,station2)->{
+           return station1.compareTo(station2);
+       }));
+
+       while(sl.size()!=0){
+           int tank=0;
+           int start=sl.get(0).ind;
+           do{
+               tank=tank+gas[start]-cost[start];
+               if(tank<0)break;
+               if(start==gas.length-1) start=0;
+               else start++;
+           }while(start!=sl.get(0).ind);
+           if (start==sl.get(0).ind) return start;
+           sl.remove(0);
        }
        return -1;
     }
