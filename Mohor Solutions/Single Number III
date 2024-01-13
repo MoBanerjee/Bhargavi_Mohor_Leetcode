@@ -1,0 +1,16 @@
+class Solution {
+    public int[] singleNumber(int[] nums) {
+        int res=0;
+        for(int i:nums){
+            res=res^i;
+        }
+        int rightmostsetbit=(res)&(-res);
+        int num1=0;
+        for(int y:nums){
+            if((y&rightmostsetbit)!=0) num1=num1^y;
+        }
+        int num2=res^num1;
+        int[] answer={num1,num2};
+        return answer;
+    }
+}
