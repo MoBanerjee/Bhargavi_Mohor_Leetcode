@@ -1,0 +1,15 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        int[] count=new int[32];
+         for(int it:nums){
+        for(int i=0;i<32;i++){
+           if((it&(1<<i))!=0)count[i]++;
+            
+        }}
+        int num=0;
+        for(int j=0;j<32;j++){
+            num+=(count[j]%3)*(1<<j);
+        }
+        return num/((nums.length)%3);
+    }
+}
