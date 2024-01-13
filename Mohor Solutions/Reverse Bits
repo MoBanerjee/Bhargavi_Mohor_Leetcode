@@ -1,0 +1,14 @@
+public class Solution {
+    // you need treat n as an unsigned value
+    public int reverseBits(int n) {
+        int lsb=0;
+        int sum=0;
+        for(int i=0;i<32;i++){
+                lsb=n&1;
+                int revlsb=lsb<<(31-i);
+                n=n>>1;
+                sum=sum|revlsb;
+        }
+        return sum;
+    }
+}
