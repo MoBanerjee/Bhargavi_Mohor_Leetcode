@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+        int m = obstacleGrid.size();
+        int n = (m>0) ?  obstacleGrid[0].size() : 0;
+        long long grid[m][n];
+        for(int a = m-1; a>=0; a--){
+            for (int b = n-1; b>=0; b--){
+                if(obstacleGrid[a][b]){
+                    grid[a][b] = 0;
+                }
+                else if(a==m-1 && b==n-1){
+                    grid[m-1][n-1] = 1;
+                }
+                else if(b==n-1){
+                    grid[a][b] = grid[a+1][b];
+                }
+                else if(a==m-1){
+                    grid[a][b] = grid[a][b+1];
+                }
+                else{
+                    grid[a][b] = grid[a][b+1] + grid[a+1][b];
+                }
+            }
+        }
+        return grid[0][0];
+    }
+};
+
+---------------------------------------------------------------------------------
+link - https://leetcode.com/problems/unique-paths-ii/description/
+topic - dynamic programming
+difficulty - medium
