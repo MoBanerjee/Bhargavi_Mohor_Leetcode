@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int minPathSum(vector<vector<int>>& grid) {
+        int m = grid.size();
+        int n = (m>0)?grid[0].size():0;
+        long long sum[m][n];
+        for(int a=m-1;a>=0;a--){
+            for(int b = n-1;b>=0;b--){
+                if(a==m-1 && b==n-1){
+                    sum[a][b] = grid[a][b];
+               }
+               else if(b==n-1){
+                    sum[a][b] = grid[a][b] + sum[a+1][b];
+                }
+                else if(a==m-1){
+                    sum[a][b] = grid[a][b]+sum[a][b+1];
+                }
+                else{
+                    sum[a][b] = grid[a][b]+min(sum[a][b+1],sum[a+1][b]);
+                }
+            }
+        }
+        return sum[0][0];
+    }
+};
+-------------------------------------------------------------------------------
+link - https://leetcode.com/problems/minimum-path-sum/
+topic - Dynamic Programming 
+difficulty - medium
