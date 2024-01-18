@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+       int grid[m][n];
+       for(int a = m-1;a>=0;a--){
+           for(int b=n-1;b>=0;b--){
+               cout<<a<<b<<endl;
+               if(a==m-1 && b==n-1){
+                    grid[m-1][n-1] = 1;
+               }
+               else if(b==n-1){
+                    grid[a][b] = grid[a+1][b];
+                }
+                else if(a==m-1){
+                    grid[a][b] = grid[a][b+1];
+                }
+                else{
+                    grid[a][b] = grid[a][b+1] + grid[a+1][b];
+                }
+           }
+       }
+       return grid[0][0];
+    }
+};
+
+------------------------------------------------------------------------
+Link - https://leetcode.com/problems/unique-paths/description/
+Topic - Dynamic Programming 
+Level - Medium
