@@ -44,3 +44,7 @@ private:
         return false;
     }
 };
+-------------------------------------------------------------------
+link - https://leetcode.com/problems/jump-game/
+difficulty - medium 
+topic - dynamic programming
