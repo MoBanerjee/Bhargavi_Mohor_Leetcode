@@ -48,3 +48,28 @@ class Solution {
 
 
 }}
+
+Memoization
+import java.util.Arrays;
+class Solution {
+    public int fn(int[]nums,int ind, int []dp){
+        if(ind==0) return dp[0]=nums[0];
+        if(ind==1) return dp[1]=Math.max(nums[0],nums[1]);
+        if(dp[ind]!=-1) return dp[ind];
+        int temp=Math.max(fn(nums,ind-2,dp)+nums[ind],nums[ind]);
+        return dp[ind]=Math.max(temp,fn(nums,ind-1,dp));
+    }
+    public int rob(int[] nums) {
+        int n=nums.length;
+        if(n==1)return nums[0];
+        int[] dp=new int[n];
+        Arrays.fill(dp,-1);
+        int first= fn(nums, n-2, dp);
+        int temp=nums[0];
+        nums[0]=-1;
+        Arrays.fill(dp,-1);
+        int second= fn(nums,n-1,dp);
+        nums[0]=temp;
+        return Math.max(first,second);
+
+}}
