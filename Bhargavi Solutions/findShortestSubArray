@@ -41,3 +41,7 @@ private:
         return right-left+1;
     }
 };
+------------------------------------------------------------------------------
+link - https://leetcode.com/problems/degree-of-an-array/
+topic - hashmaps
+difficulty - easy 
