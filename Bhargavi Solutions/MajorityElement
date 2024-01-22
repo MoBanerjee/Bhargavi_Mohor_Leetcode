@@ -51,3 +51,8 @@ public:
 };
 ------------------------------------------------------------
 Moore voting algorithm ( check notes )
+------------------------------------------------------------
+link - https://leetcode.com/problems/majority-element/description/
+topic - hashmaps
+difficulty - easy
+
