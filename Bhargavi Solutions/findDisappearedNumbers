@@ -1,16 +1,13 @@
 class Solution {
 public:
     vector<int> findDisappearedNumbers(vector<int>& nums) {
-        set<int> set_nums{nums.begin(),nums.end()};
+        unordered_set<int> set_nums{nums.begin(),nums.end()};
+        // set automatically sorts everything - 
         vector<int>sol;
         auto it  = set_nums.begin();
         // this will be the sorted set containing the elements only once
         for(int i=1;i<=nums.size();i++){
-            if(*it==i){
-                it++;
-                continue;
-            }
-            else{
+            if(set_nums.count(i)==0){
                 sol.push_back(i);
             }
         }
