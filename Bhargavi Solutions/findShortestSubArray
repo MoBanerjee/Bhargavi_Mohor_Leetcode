@@ -1,0 +1,43 @@
+class Solution {
+public:
+    int findShortestSubArray(vector<int>& nums) {
+        unordered_map<int,int> count;
+        int max=0;
+        int ans = -1;
+        for (int i :nums){
+            count[i]++;
+            max = std::max(count[i],max);
+        }
+        for ( auto i:count){
+            if(i.second == max){
+                if(ans<0){
+                    ans = findSubArray(i.first,nums);
+                }
+                else{
+                    ans = std::min(ans,findSubArray(i.first,nums));
+                }
+                
+            }
+        }
+        return ans;
+    }
+private:
+    int findSubArray(int sol, vector<int>&nums){
+        int left =0 ;
+        while(left<nums.size()){
+            if(nums[left]==sol){
+                break;
+            }
+            left++;
+        }
+
+        int right = nums.size()-1;
+        while(right>=0){
+            if(nums[right]==sol){
+                break;
+            }
+            right--;
+        }
+        return right-left+1;
+    }
+};
