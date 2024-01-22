@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        set<int> set_nums{nums.begin(),nums.end()};
+        vector<int>sol;
+        auto it  = set_nums.begin();
+        // this will be the sorted set containing the elements only once
+        for(int i=1;i<=nums.size();i++){
+            if(*it==i){
+                it++;
+                continue;
+            }
+            else{
+                sol.push_back(i);
+            }
+        }
+        return sol;  
+    }
+};
+-----------------------------------------------------------------------
+link - https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+topic - hashmaps
+difficulty - easy
