@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int findShortestSubArray(vector<int>& nums) {
+        unordered_map<int,int> count; // this is a map that stores the number of times a number occurs in the nums array
+        unordered_map<int,int> first;// this is a map that stores the first index of every number that occurs in the nums array
+        int res = 0; // result --> this will store the value of the smallest sub array( basically it stores what we want) 
+        int degree = 0; // initially the degree of the array
+        for(int i=0;i<nums.size();i++){
+            // this loop will iterate through every element in the nums array
+            if(first.count(nums[i])==0){
+                // by applying the counts method ( you are checking to see if this number's first occurance ahs already come or not .... if not then create a new entry)
+                first[nums[i]] = i;
+                // this will save the first occurance of the number
+            }
+            if(++count[nums[i]]>degree){
+                // if the the count of a number is greater than the degree 
+                degree = count[nums[i]];
+                // update the degree
+                res = i - first[nums[i]]+1;
+                // you found this number at the index i 
+                // so to find the length of the sub array you want to subtract this from the first instance.
+            }
+            else if(count[nums[i]]==degree){
+                res = min(res, i-first[nums[i]]+1);
+                // compare the size of the subarray
+            }
+        }
+        return res;
+    }
+};
+------------------------------------------------------------------------------------------------------------------
+link - https://leetcode.com/problems/degree-of-an-array/
