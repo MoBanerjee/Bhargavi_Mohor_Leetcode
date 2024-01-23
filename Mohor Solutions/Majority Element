@@ -1,0 +1,21 @@
+import java.util.HashMap;
+import java.util.Map.Entry;
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer,Integer> map=new HashMap<>();
+        int n=nums.length;
+        int floor=n/2;
+        for(int it:nums){
+            if(map.get(it)!=null)
+            map.put(it,(map.get(it))+1);
+            else
+            map.put(it,1);
+        }
+        for(Entry<Integer, Integer> entry: map.entrySet()){
+            if(entry.getValue()>floor ){
+                return entry.getKey();
+            }
+        }
+        return 0;
+    }
+}
