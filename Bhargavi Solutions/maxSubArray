@@ -38,3 +38,4 @@ public:
 link - https://leetcode.com/problems/maximum-subarray/
 topic - array 
 diff - medium 
+appraoch - this also uses SLIDING WINDOW approach
