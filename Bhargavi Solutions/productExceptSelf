@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        vector<int> ans(nums.size()); 
+        ans[0] =1;
+        for(int i=0;i<nums.size()-1;i++){
+            ans[i+1] = nums[i] * ans[i];
+        }
+        int a =1;
+        ans[nums.size()-1] *= 1;
+        for(int i=nums.size()-2;i>=0;i--){
+            a = a * nums[i+1];
+            ans[i] = ans[i]*a;
+        }
+        return ans;
+    }
+};
+-----------------------------------------------------------
+Explaination - https://youtu.be/bNvIQI2wAjk?si=YME0vhkKG1w4NZCy
+You create a prefix array and postfic array. 
+link - https://leetcode.com/problems/product-of-array-except-self/description/
+topic - array, medium, company
