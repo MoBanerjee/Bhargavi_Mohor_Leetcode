@@ -1,0 +1,40 @@
+My solution ( time is abt 70 ms ( it is varying by a lot everytime ))
+-----------------------------------------------------------------------
+class Solution{
+    public:
+        int maxSubArray(vector<int>&nums){
+            int sum = nums[0];
+            int max_sum = nums[0];
+            for(int i= 1;i<nums.size();i++){
+                if((nums[i]>=0 && sum<0 )|| (nums[i]<0 && sum<=nums[i])){
+                    sum = nums[i];
+                }
+                else{
+                    sum += nums[i];
+                }
+                max_sum = max(sum,max_sum);
+            }
+            return max_sum;
+        }
+};
+------------------------------------------------------------------------
+Neetcode  ( about the same run time but simpler code )
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int sum = 0;
+        int max_sum = nums[0];
+        for(int i:nums){
+            if(sum<0){
+                sum = 0;
+            }
+            sum +=i;
+            max_sum = max(sum,max_sum);
+        }
+        return max_sum;
+    }
+};
+------------------------------------------------------------------------
+link - https://leetcode.com/problems/maximum-subarray/
+topic - array 
+diff - medium 
