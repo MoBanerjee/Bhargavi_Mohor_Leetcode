@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int l = 0; // buy
+        int r = 1; //sell
+        int maxP =0; // stores the max
+        int profits;
+        while(r<prices.size()){
+            if(prices[l]<prices[r]){
+                profits = prices[r]-prices[l];
+                maxP = max(profits, maxP);
+            }
+            else{
+                l = r;
+            }
+            r++;
+        }
+        return maxP;}
+};
+
+-----------------------------------------------------
+Explaination - https://youtu.be/1pkOgXD63yU?si=kPTafZAgK-gXbxV3
+Approach name - Sliding window approach
+Link - https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+Topic - arrays, easy
